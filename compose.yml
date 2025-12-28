@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:18-bookworm
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/lib/postgresql/18/docker
+
+volumes:
+  db-data:
